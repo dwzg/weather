@@ -58,3 +58,9 @@ jobs:
         uses: distributhor/workflow-webhook@v3
         with:
           webhook_url: ${{ secrets.PORTAINER_WEBHOOK_URL }}
+
+      - name: Delete old package version
+        uses: minish144/delete-untagged-action@v2
+        with:
+          github-token: ${{ secrets.DELETE_PACKAGES_TOKEN }}
+          personal-account: true
