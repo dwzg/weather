@@ -6,12 +6,15 @@ on:
       temperature:
         required: true
         type: string
+
       humidity:
         required: true
         type: string
+
       pressure:
         required: true
         type: string
+
       timestamp:
         required: true
         type: string
@@ -19,6 +22,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     permissions:
       contents: read
       packages: write
@@ -52,7 +56,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/weatherpage:latest
+          tags: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:latest
 
       - name: Trigger Portainer webhook
         uses: distributhor/workflow-webhook@v3
