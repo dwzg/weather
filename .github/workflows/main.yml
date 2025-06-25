@@ -33,10 +33,10 @@ jobs:
           sources: 'index.html'
           variables: |
             {
-              "temperature": "${{ github.event.client_payload.temperature }}",
-              "humidity": "${{ github.event.client_payload.humidity }}",
-              "pressure": "${{ github.event.client_payload.pressure }}",
-              "timestamp": "${{ github.event.client_payload.timestamp }}"
+              "temperature": "${{ inputs.temperature }}",
+              "humidity": "${{ inputs.humidity }}",
+              "pressure": "${{ inputs.pressure }}",
+              "timestamp": "${{ inputs.timestamp }}"
             }
 
       - name: Login to GitHub Container Registry
