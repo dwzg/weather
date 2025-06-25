@@ -1,8 +1,20 @@
 name: Build and Deploy Weather Website to GHCR
 
 on:
-  repository_dispatch:
-    types: [weather-update]
+  workflow_dispatch:
+    inputs:
+      temperature:
+        required: true
+        type: string
+      humidity:
+        required: true
+        type: string
+      pressure:
+        required: true
+        type: string
+      timestamp:
+        required: true
+        type: string
 
 jobs:
   build-and-deploy:
